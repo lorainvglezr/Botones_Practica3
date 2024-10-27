@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Botones en JavaScript</title>
+    </head>
+    <body>
+        <h1 id="titulo"> Viejo Pastor Inglés </h1>
+        <p>
+            <button id="btnTipografia" onclick="changeTypo()">Pícale al botón para cambiar al azar la tipografía del título</button>
+            <br>
+            <br>
+            Ahora veamos cómo se ve esta raza de perros
+            <br>
+            <br>
+            <button type="button" onclick="document.getElementById('demo1').style.fontFamily='Tahoma'">Dale clic para cambiar el estilo del siguiente párrafo</button>
+            <p id="demo1">Dale clic a la imagen del cachorro para ver cómo se verá de grande el Viejo Pastor Inglés.</p>
+            <img id="btnImagen" src="Viejo Pastor Ingles - Cachorro.jpg" width="350" onclick="change_Image()">
+            <img id="principalImage" src="Fondo Patitas.jpg" width="415">
+            <br>
+            <p id="demo2">NOTA: Si le picas por segunda vez a la imagen del cachorro, la imagen del perro adulto vuelve a la imagen inicial de patitas y huesos para perros.</p>
+            <button type="button" onclick="document.getElementById('demo2').style.fontSize='2em'">Dale clic para cambiar el estilo del párrafo de "NOTA"</button>
+            <br>
+            <p id="fechaHora"></p>
+            <button type="button" onclick="document.getElementById('fechaHora').innerHTML=Date()">Pícale al botón para desplegar fecha y hora actual</button>
+            <p id="fechaHora"></p>
+            <br>
+        </p>
+        <script>
+            // Función para cambiar imágenes
+            let changedImage = false;
+            function change_Image() 
+            {
+                const principalImage = document.getElementById("principalImage");
+                if (changedImage) 
+                {
+                    principalImage.src ="Fondo Patitas.jpg";
+                } 
+                
+                else 
+                {
+                    principalImage.src ="Viejo Pastor Ingles - Adulto.jpg";
+                }
+                changedImage = !changedImage;
+            }
+            
+            // Función para cambiar al azar la tipografía del título
+            function changeTypo() 
+            {
+                const fuentes = ["Helvetica", "Garamond MS", "Georgia", "Times New Roman", "Trebuchet MS", "Verdana"];
+                const fuenteRandom = fuentes[Math.floor(Math.random() * fuentes.length)];
+                document.getElementById("titulo").style.fontFamily = fuenteRandom;
+            }
+        </script>
+    </body>
+</html>
